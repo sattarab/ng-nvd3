@@ -24,9 +24,9 @@ angular.module('ng-nvd3', [])
                         var chart = nv.models.pieChart()
                             .x(function (d) { return d.key; })
                             .y(function (d) { return d.val; })
-                            .showLegend(scope.hideLegend)
+                            .showLegend(scope.hideLegend == 'false' ? false : true)
                             .labelType(scope.labelType)
-                            .donut(scope.donut);
+                            .donut(scope.donut == 'true' ? true : false);
 
                         if (scope.colors){
                             chart.color(scope.colors);
