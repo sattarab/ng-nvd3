@@ -1,6 +1,6 @@
 {
     "name": "ng-nvd3",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "main": "./dist/ng-nvd3.js",
     "description": "AngularJs nvd3 directives",
     "authors": [
@@ -23,7 +23,8 @@
     ],
     "ignore": [
         "bower.json",
-        "README.md"
+        "README.md",
+        "examples"
     ],
     "dependencies": {
         "angular": "~1.2.16",
