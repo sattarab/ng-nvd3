@@ -18,6 +18,7 @@ Note: This directive module is dependent on angular, d3 and nvd3
 
 ###API
 ####Pie Chart
+![Line Charts](https://github.com/sattarab/ng-nvd3/raw/master/img/pie-chart.png "Pie Chart")
 ```
 Angular-directive in html:
 <nvd3-pie-chart ...></nvd3-pie-chart>
