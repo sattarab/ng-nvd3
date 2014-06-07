@@ -1,0 +1,32 @@
+{
+    "name": "ng-nvd3",
+    "version": "0.0.1",
+    "main": "./dist/ng-nvd3.js",
+    "description": "AngularJs nvd3 directives",
+    "authors": [
+        "sattarab"
+    ],
+    "license": "MIT",
+    "homepage": "https://github.com/sattarab/ng-nvd3/",
+    "keywords": [
+        "d3",
+        "nvd3",
+        "AngularJS",
+        "visualization",
+        "svg",
+        "charts",
+        "pie chart",
+        "line",
+        "line chart",
+        "scatter chart",
+        "horizontal bar chart"
+    ],
+    "ignore": [
+        "bower.json",
+        "README.md"
+    ],
+    "dependencies": {
+        "angular": "~1.2.16",
+        "nvd3": "~v1.1.15-beta"
+    }
+}

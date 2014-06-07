@@ -1,10 +1,26 @@
 'use strict';
 
 angular.module('ng-nvd3', [])
+/**
+* Creates a Pie Chart
+* @data - the json data to construct the pie chart
+*   eg. data is passed in view as <%= raw @data.to_json.html_safe %>
+*     var data = [
+*       {
+*        key:  "One",
+*        y: 5
+*       },
+*       {
+*        key: "Two",
+*        y: 10
+*       }
+*     ];
+*/
 .directive('nvd3PieChart', function (){
     return{
         restrict: 'E',
         scope: {
+            chartId: '@',
             colors: '=',
             data: '=',
             divClass: '@',
@@ -42,10 +58,10 @@ angular.module('ng-nvd3', [])
                             chart.width(scope.width).height(scope.height);
                         }
 
-                        d3.select("#pieChart svg").datum(scope.data)
+                        d3.select('#' + scope.chartId + " svg").datum(scope.data)
                             .attr('width', scope.width)
                             .attr('height', scope.height)
-                            .transition().duration(scope.duration)
+                            .transition().duration(scope.duration == null ? 250 : scope.duration)
                             .call(chart);
 
                         nv.utils.windowResize(chart.update);
@@ -55,7 +71,7 @@ angular.module('ng-nvd3', [])
             });   
         },
         template: function (element, attrs){
-            element.append('<div id="pieChart" class="'+ attrs.divClass +'"><svg></svg></div>');
+            element.append('<div id="'+ attrs.chartId +'" class="'+ attrs.divClass +'"><svg></svg></div>');
         }
     }
 })
@@ -63,6 +79,7 @@ angular.module('ng-nvd3', [])
     return{
         restrict: 'E',
         scope: {
+            chartId: '@',
             data: '=',
             divClass: '@',
             duration: '@',
@@ -95,15 +112,15 @@ angular.module('ng-nvd3', [])
                         if (!(scope.responsive == 'true' ? true : false)) {
                             chart.width(scope.width).height(scope.height);
             
-                            d3.select('#lineChart svg')
+                            d3.select('#' + scope.chartId +' svg')
                                 .attr('viewBox', '0 0 ' + scope.width + ' ' + scope.height);
                         }
 
-                        d3.select('#lineChart svg').datum(scope.data)
+                        d3.select('#' + scope.chartId +' svg').datum(scope.data)
                             .attr('width', scope.width)
                             .attr('height', scope.height)
                             .attr('perserveAspectRatio', 'xMinYMid')
-                            .transition().duration(scope.duration)
+                            .transition().duration(scope.duration == null ? 250 : scope.duration)
                             .call(chart);
 
                         nv.utils.windowResize(chart.update);
@@ -113,7 +130,7 @@ angular.module('ng-nvd3', [])
             });
         },
         template: function (element, attrs){
-            element.append('<div id="lineChart" class="'+ attrs.divClass +'"><svg></svg></div>');
+            element.append('<div id="'+ attrs.chartId +'" class="'+ attrs.divClass +'"><svg></svg></div>');
         }
     }
 })
@@ -121,6 +138,7 @@ angular.module('ng-nvd3', [])
     return{
         restrict: 'E',
         scope: {
+            chartId: '@',
             data: '=',
             divClass: '@',
             duration: '@',
@@ -157,10 +175,10 @@ angular.module('ng-nvd3', [])
                             chart.width(scope.width).height(scope.height);
                         }
           
-                        d3.select('#scatterChart svg').datum(scope.data)
+                        d3.select('#' + scope.chartId + ' svg').datum(scope.data)
                             .attr('width', scope.width)
                             .attr('height', scope.height)
-                            .transition().duration(scope.duration)
+                            .transition().duration(scope.duration == null ? 250 : scope.duration)
                             .call(chart);
           
                         nv.utils.windowResize(chart.update);
@@ -170,7 +188,7 @@ angular.module('ng-nvd3', [])
             })
         },
         template: function (element, attrs){
-            element.append('<div id="scatterChart" class="'+ attrs.divClass +'"><svg></svg></div>');
+            element.append('<div id="'+ attrs.chartId +'" class="'+ attrs.divClass +'"><svg></svg></div>');
         }
     }
 })
@@ -178,6 +196,7 @@ angular.module('ng-nvd3', [])
     return{
         restrict: 'E',
         scope: {
+            chartId: '@',
             data: '=',
             duration: '@',
             divClass: '@',
@@ -196,12 +215,12 @@ angular.module('ng-nvd3', [])
                             .y(function(d) { return d.value })
                             .showValues(scope.showValues == 'true' ? true : false)
                             .tooltips(scope.tooltips == 'true' ? true : false) 
-                            .transitionDuration(scope.duration)
+                            .transitionDuration(scope.duration == null ? 250 : scope.duration)
                             .showControls(scope.showControls == 'true' ? true : false);
                     
                         chart.yAxis.tickFormat(d3.format(scope.yformat));
 
-                        d3.select('#horizontalBarChart svg')
+                        d3.select('#' + scope.chartId + ' svg')
                             .datum(scope.data)
                             .call(chart);
 
@@ -213,7 +232,7 @@ angular.module('ng-nvd3', [])
             })
         },
         template: function (element, attrs){
-            element.append('<div id="horizontalBarChart" class="'+ attrs.divClass +'"><svg></svg></div>');
+            element.append('<div id="'+ attrs.chartId +'" class="'+ attrs.divClass +'"><svg></svg></div>');
         }
     }
 });

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <title>Line Chart</title>
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="./css/nv.d3.css"/>
+    <style>
+    .lineChart{
+        width: 600px;
+        height: 600px;
+        overflow: hidden;
+    }
+    </style>
+    <!-- scripts -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+    <script type="text/javascript" src="./javascripts/d3.v3.js"></script>
+    <script type="text/javascript" src="./javascripts/nv.d3.js"></script>
+    <script type="text/javascript" src="../dist/ng-nvd3.js"></script>
+    <script>
+      angular.module('app', ['ng-nvd3'])
+      
+      function LineChartCtrl($scope, $timeout){
+        function sampleData() {
+          var series1 = [],
+              series2 = [],
+              series3 = [];
+
+          for(var i = 1; i < 100; i++) {
+            series1.push({
+              x: i, y: 100 / i
+            })
+            if (i % 2 == 0)
+              series2.push({
+                x: i, y: i / 2
+              })
+            if (i % 5 == 0)
+              series3.push({
+                x: i, y: Math.random()*100
+              })
+          }
+
+          return [
+            {
+              key: "100 / x",
+              values: series1,
+              color: "blue"
+            },
+            {
+              key: "x / 2",
+              values: series2,
+              color: "#66ccff"
+            },
+            {
+              key: "random",
+              values: series3,
+              color: "green"
+            },
+            {
+              key: "???",
+              color: "red",
+              values: [
+                {x: 3, y: 99},
+                {x: 30, y: 66},
+                {x: 30, y: 22},
+                {x: 20, y: 88},
+                {x: 99, y: 33}
+              ]
+            }
+          ];
+        };
+                
+        $scope.data = sampleData();
+      }
+      
+    </script>
+    <!-- meta -->
+  </head>
+  <body ng-controller="LineChartCtrl">
+    <h3>Line Chart</h3>
+    <nvd3-line-chart chart-id="chart1" data="data" div-class="lineChart" width="1000" height="500" duration="2000" guide="true" xlabel="X-AXIS" ylabel="Y-AXIS"></nvd3-line-chart>
+  </body>
+</html>

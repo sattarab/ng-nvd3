@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <title>Pie Chart</title>
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="./css/nv.d3.css"/>
+    <style>
+    .pieChart{
+        width: 400px;
+        height: 400px;
+        overflow: hidden;
+    }
+    </style>
+    <!-- scripts -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+    <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+    <script type="text/javascript" src="./javascripts/nv.d3.js"></script>
+    <script type="text/javascript" src="../dist/ng-nvd3.js"></script>
+    <script>
+      angular.module('app', ['ng-nvd3'])
+      
+      function PieChartCtrl($scope, $timeout){
+        function sampleData() {
+          var better = Math.round(Math.random() * 60) + 10;
+          return [
+            {
+              key: "Worse",
+              val: 100 - better
+            }, {
+              key: "Same",
+              val: better / 4
+            }, {
+              key: "Better",
+              val: better * 3 / 4
+            },
+          ];
+        }
+        
+        $scope.getData = function(){
+            $scope.data = sampleData();
+        }
+        
+        $scope.data = sampleData();
+        $scope.fixedData = sampleData();
+        
+        $scope.colors =  ["#d4fafd","#89e398", "#333333"];
+        
+        /* for real time generation */
+        $scope.intervalFunction = function(){
+            $timeout(function() {
+              $scope.getData();
+              $scope.intervalFunction();
+            }, 1000)
+        };
+    
+        $scope.intervalFunction();
+      }
+      
+    </script>
+    <!-- meta -->
+  </head>
+  <body ng-controller="PieChartCtrl">
+    <h3>Real Time Changing pie chart</h3>
+    <nvd3-pie-chart chart-id="chart1" data="data" div-class="pieChart" width="400" height="400" duration="1000" label-type="percent"></nvd3-pie-chart>
+    <hr>
+    <h3>Fixed data pie chart</p>
+    <nvd3-pie-chart chart-id="chart2" data="fixedData" div-class="pieChart" width="400" height="400" duration="1000" label-type="percent" colors="colors"></nvd3-pie-chart>
+  </body>
+</html>

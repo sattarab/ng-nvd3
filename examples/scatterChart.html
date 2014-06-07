@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <title>Scatter Chart</title>
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="./css/nv.d3.css"/>
+    <style>
+    .scatterChart{
+        width: 1200px;
+        height: 1200px;
+    }
+    </style>
+    <!-- scripts -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+    <script type="text/javascript" src="./javascripts/d3.v3.js"></script>
+    <script type="text/javascript" src="./javascripts/nv.d3.js"></script>
+    <script type="text/javascript" src="../dist/ng-nvd3.js"></script>
+    <script>
+      angular.module('app', ['ng-nvd3'])
+      
+      function ScatterChartCtrl($scope, $timeout){
+        function sampleData() {
+          return [
+            {
+              key: "Line 1",
+              values: [
+                {x: 1, y: 10},
+                {x: 2, y: 11},
+                {x: 3, y: 12},
+                {x: 4, y: 13},
+                {x: 2, y: 10.5},
+                {x: 3, y: 12.5}
+              ],
+              slope: 1,
+              intercept: 9,
+            },
+            {
+              key: "Line 2",
+              values: [
+                {x: 1, y: 11, shape: "circle", size: 1},
+                {x: 2, y: 10, shape: "cross", size: 1.5},
+                {x: 3, y: 13, shape: "triangle-up", size: 2},
+                {x: 4, y: 15, shape: "triangle-down", size: 2.5},
+                {x: 2, y: 12, shape: "diamond", size: 3},
+                {x: 3, y: 11, shape: "square", size: 3.5}
+              ],
+              slope: 1.5,
+              intercept: 8,
+            }
+          ].concat(randomData(3, 5));
+        };
+    
+        function randomData(groups, points) {
+          var data = [];
+
+          for (var i = 0; i < groups; i++) {
+            data.push({
+              key: 'Group ' + i,
+              values: []
+            });
+
+            for (var j = 0; j < points; j++) {
+              data[i].values.push({
+                x: Math.random() * 5, 
+                y: Math.random() * 5 + 10, 
+                size: Math.random() * 5
+              });
+            }
+          }
+
+          return data;
+        };
+    
+        $scope.data = sampleData();
+      }
+      
+    </script>
+    <!-- meta -->
+  </head>
+  <body ng-controller="ScatterChartCtrl">
+    <nvd3-scatter-chart data="data" div-class="scatterChart" width="1000" height="1000" duration="2000" force-line="true"></nvd3-scatter-chart>
+  </body>
+</html>
