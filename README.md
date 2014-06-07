@@ -1,5 +1,5 @@
 ##AngularJS directive for nvd3.js charts
-This is a nvd3 directive for AngularJS. It currently supports pie Chart, line Chart, scatter Chart and horizontal Bar Chart.
+This is a nvd3 directive for AngularJS. It currently supports pie Chart, line Chart, scatter Chart and horizontal Bar Chart. This is a lightweight directive which the ability to allow the output graph to be responsive.
 
 ###Basic Setup
 ```
@@ -33,25 +33,27 @@ duration(optional): The transition duration.  The default value is 250.
 half(optional): If provided and is true the output graph is halved.
 height(required): The height of the output graph
 hideLegend(optional): If provided and is true the output graph does not have a legend.
+responsive(optional): If provided and is true the output graph is responsive.
 width(optional): The width of the output graph.
 ```
 
 
-####Line Chart
+####Line Graph
 ![Line Chart](https://github.com/sattarab/ng-nvd3/raw/master/img/line-chart.png "Line Chart")
 ```
 How to Use?
 
 Angular-directive in html:
-<nvd3-line-chart ...></nvd3-line-chart>
+<nvd3-line-graph ...></nvd3-line-graph>
 
 Attributes:
 chartId(recommended): The unique id of the line chart on that page. It is required if there are multiple line charts on the same html page.
 data(required): The data that is to be displayed on the line chart. 
 divClass(optional): For custom styling of the div that would contain the chart. This can be used for setting the width and height of the div that contains the line chart.
 duration(optional): The transition duration. The default value is 250.
-height(required): The height of the output graph
 guide(optional): If provided and is true the output graph does have a legend.
+height(required): The height of the output graph
+responsive(optional): If provided and is true the output graph is responsive.
 width(optional): The width of the output graph.
 xlabel(optional): The x-axis label of the graph.
 xformat(optional): The format of data on the x-axis.
@@ -60,12 +62,12 @@ yformat(optional): The format of data on the y-axis.
 ```
 
 
-####Scatter Chart
+####Scatter Graph
 ```
 How to Use?
 
 Angular-directive in html:
-<nvd3-scatter-chart ...></nvd3-scatter-chart>
+<nvd3-scatter-graph ...></nvd3-scatter-graph>
 
 Attributes:
 chartId(recommended): The unique id of the scatter chart on that page. It is required if there are multiple scatter charts on the same html page.
@@ -73,31 +75,34 @@ data(required): The data that is to be displayed on the scatter chart.
 divClass(optional): For custom styling of the div that would contain the chart. This can be used for setting the width and height of the div that contains the scatter chart.
 duration(optional): The transition duration. The default value is 250.
 forceLine(optional): If provided and is true a line is drawn through the points on the scatter plot.
-height(required): The height of the output graph
+height(required): The height of the output graph.
+responsive(optional): If provided and is true the graph is responsive.
 width(optional): The width of the output graph.
 xformat(optional): The format of data on the x-axis.
 yformat(optional): The format of data on the y-axis.
 ```
 
-####Horizontal Bar Chart
+####Horizontal Bar Graph
 ![Horizontal Bar Chart](https://github.com/sattarab/ng-nvd3/raw/master/img/horizontal-bar.png "Horizontal Bar Chart")
 ```
 How to Use?
 
 Angular-directive in html:
-<nvd3-horizontal-bar-chart ...></nvd3-horizontal-bar-chart>
+<nvd3-horizontal-bar-graph ...></nvd3-horizontal-bar-graph>
 
 Attributes:
 chartId(recommended): The unique id of the chart on that page. It is required if there are multiple charts on the same html page.
 data(required): The data that is to be displayed on the horizontal chart. 
 divClass(optional): For custom styling of the div that would contain the chart. This can be used for setting the width and height of the div that contains the horizontal bar chart.
 duration(optional): The transition duration. The default value is 250.
+responsive(optional): If provided and is true the output graph is responsive.
 showControls(optional): If provided and true it would show controls for the graph.
 showValues(optional): If provided and true it would show values on the graph.
 tooltips(optional): If provided and true it would show tooltip when the values are hovered on the graph.
 yformat(optional): The format of data on the y-axis.
 ```
 
+###License
 The MIT License
 
 Copyright (c) sattarab email: c2sattara1@gmail.com
