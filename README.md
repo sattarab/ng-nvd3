@@ -18,7 +18,7 @@ Note: This directive module is dependent on angular, d3 and nvd3
 
 ###API
 ####Pie Chart
-![Line Charts](https://github.com/sattarab/ng-nvd3/raw/master/img/pie-chart.png "Pie Chart")
+![Pie Chart](https://github.com/sattarab/ng-nvd3/raw/master/img/pie-chart.png "Pie Chart")
 ```
 Angular-directive in html:
 <nvd3-pie-chart ...></nvd3-pie-chart>
@@ -38,6 +38,7 @@ width(optional): The width of the output graph.
 
 
 ####Line Chart
+![Line Chart](https://github.com/sattarab/ng-nvd3/raw/master/img/line-chart.png "Line Chart")
 ```
 How to Use?
 
@@ -79,6 +80,7 @@ yformat(optional): The format of data on the y-axis.
 ```
 
 ####Horizontal Bar Chart
+![Horizontal Bar Chart](https://github.com/sattarab/ng-nvd3/raw/master/img/horizontal-bar.png "Horizontal Bar Chart")
 ```
 How to Use?
 
