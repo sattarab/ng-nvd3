@@ -24,7 +24,8 @@
     "ignore": [
         "bower.json",
         "README.md",
-        "examples"
+        "examples",
+        "img"
     ],
     "dependencies": {
         "angular": "~1.2.16",
