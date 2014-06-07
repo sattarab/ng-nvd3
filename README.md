@@ -2,7 +2,7 @@
 This is a nvd3 directive for AngularJS. It currently supports pie Chart, line Chart, scatter Chart and horizontal Bar Chart.
 
 ###Basic Setup
-,,,
+```
 Note: This directive module is dependent on angular, d3 and nvd3
 1. Install the directive using bower install ng-nvd3 --save
 2. This would add install the dependencies required for this directive and the directive itself
@@ -14,10 +14,11 @@ Note: This directive module is dependent on angular, d3 and nvd3
   <script src="bower_components/angularjs-nvd3-directives/dist/angularjs-nvd3-directives.js"></script>
   
   Note: I have added d3.v3.min.js as a direct link in the script tag above. You can either download the d3.v3.js from this repository provided in lib folder or use the direct link as shown above
+```
 
 ###API
 ####Pie Chart
-,,,
+```
 Angular-directive in html:
 <nvd3-pie-chart ...></nvd3-pie-chart>
 
@@ -32,11 +33,11 @@ half(optional): If provided and is true the output graph is halved.
 height(required): The height of the output graph
 hideLegend(optional): If provided and is true the output graph does not have a legend.
 width(optional): The width of the output graph.
-,,,
+```
 
 
 ####Line Chart
-,,,
+```
 How to Use?
 
 Angular-directive in html:
@@ -54,11 +55,11 @@ xlabel(optional): The x-axis label of the graph.
 xformat(optional): The format of data on the x-axis.
 ylabel(optional): The y-axis label of the graph.
 yformat(optional): The format of data on the y-axis.
-,,,
+```
 
 
 ####Scatter Chart
-,,,
+```
 How to Use?
 
 Angular-directive in html:
@@ -74,10 +75,10 @@ height(required): The height of the output graph
 width(optional): The width of the output graph.
 xformat(optional): The format of data on the x-axis.
 yformat(optional): The format of data on the y-axis.
-,,,
+```
 
 ####Horizontal Bar Chart
-,,,
+```
 How to Use?
 
 Angular-directive in html:
@@ -92,7 +93,7 @@ showControls(optional): If provided and true it would show controls for the grap
 showValues(optional): If provided and true it would show values on the graph.
 tooltips(optional): If provided and true it would show tooltip when the values are hovered on the graph.
 yformat(optional): The format of data on the y-axis.
-,,,
+```
 
 The MIT License
 
