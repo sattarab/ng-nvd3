@@ -214,9 +214,9 @@ angular.module('ng-nvd3', [])
     }
 })
 /**
-* Creates a Horizontal Bar Graph
+* Creates a Multi-Bar Graph
 */
-.directive('nvd3HorizontalBarGraph', function (){
+.directive('nvd3BarGraph', function (){
     return{
         restrict: 'E',
         scope: {
@@ -225,6 +225,7 @@ angular.module('ng-nvd3', [])
             duration: '@',
             divClass: '@',
             height: '@',
+            horizontal: '@',
             responsive: '@',
             showControls: '@',
             showValues: '@',
@@ -237,15 +238,21 @@ angular.module('ng-nvd3', [])
             scope.$watch('data', function (data){
                 if (data){
                     nv.addGraph(function() {
-                        var chart = nv.models.multiBarHorizontalChart()
-                            .x(function(d) { return d.label })
+                        var chart;
+                        
+                        if (scope.horizontal == 'true'){
+                            chart = nv.models.multiBarHorizontalChart();
+                        }
+                        else{
+                            chart = nv.models.multiBarChart();
+                        }
+                        
+                        chart.x(function(d) { return d.label })
                             .y(function(d) { return d.value })
-                            .showValues(scope.showValues == 'true' ? true : false)
                             .tooltips(scope.tooltips == 'true' ? true : false) 
                             .transitionDuration(scope.duration == null ? 250 : scope.duration)
-                            .showControls(scope.showControls == 'true' ? true : false);
-                    
-                        chart.yAxis.tickFormat(d3.format(scope.yformat));
+                            .showControls(scope.showControls == 'true' ? true : false)
+                            .yAxis.tickFormat(d3.format(scope.yformat));
                         
                         if (!(scope.responsive == 'true')){
                             chart.width(scope.width).height(scope.height);
