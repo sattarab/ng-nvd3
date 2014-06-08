@@ -24,9 +24,10 @@ Note: This directive module is dependent on angular, d3 and nvd3
 ![Pie Chart](https://github.com/sattarab/ng-nvd3/raw/master/img/pie-chart.png "Pie Chart")
 #####How to use?
 
+```
 Angular-directive in html:
 ######<nvd3-pie-chart ...></nvd3-pie-chart>
-```
+
 Attributes:
 chartId(recommended): The unique id of the pie chart on that page. It is required if there are multiple pie charts on the same html page.
 colors(optional): For custom color you can provide color as an array of hex or rgb values.
@@ -46,9 +47,9 @@ width(optional): The width of the output graph.
 ![Line Chart](https://github.com/sattarab/ng-nvd3/raw/master/img/line-chart.png "Line Chart")
 #####How to use?
 
+```
 Angular-directive in html:
 ######<nvd3-line-graph ...></nvd3-line-graph>
-```
 Attributes:
 chartId(recommended): The unique id of the line chart on that page. It is required if there are multiple line charts on the same html page.
 data(required): The data that is to be displayed on the line chart. 
@@ -68,9 +69,9 @@ yformat(optional): The format of data on the y-axis.
 ####Scatter Graph
 #####How to use?
 
+```
 Angular-directive in html:
 ######<nvd3-scatter-graph ...></nvd3-scatter-graph>
-```
 Attributes:
 chartId(recommended): The unique id of the scatter chart on that page. It is required if there are multiple scatter charts on the same html page.
 data(required): The data that is to be displayed on the scatter chart. 
@@ -88,9 +89,9 @@ yformat(optional): The format of data on the y-axis.
 ![Bar Chart](https://github.com/sattarab/ng-nvd3/raw/master/img/horizontal-bar.png "Horizontal Bar Chart")
 #####How to use?
 
+```
 Angular-directive in html:
 ######<nvd3-bar-graph ...></nvd3-bar-graph>
-```
 Attributes:
 chartId(recommended): The unique id of the chart on that page. It is required if there are multiple charts on the same html page.
 data(required): The data that is to be displayed on the horizontal chart. 
