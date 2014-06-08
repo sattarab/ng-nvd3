@@ -2,6 +2,9 @@
 This is a nvd3 directive for AngularJS. It currently supports pie chart, line chart, scatter chart and bar chart. This is a lightweight directive which has the ability to allow the output graph to be responsive.
 
 ###Basic Setup
+Using bower:
+bower install ng-nvd3 --save
+
 ```
 Note: This directive module is dependent on angular, d3 and nvd3
 1. Install the directive using bower install ng-nvd3 --save
@@ -22,7 +25,7 @@ Note: This directive module is dependent on angular, d3 and nvd3
 #####How to use?
 
 Angular-directive in html:
-<nvd3-pie-chart ...></nvd3-pie-chart>
+######<nvd3-pie-chart ...></nvd3-pie-chart>
 ```
 Attributes:
 chartId(recommended): The unique id of the pie chart on that page. It is required if there are multiple pie charts on the same html page.
@@ -44,7 +47,7 @@ width(optional): The width of the output graph.
 #####How to use?
 
 Angular-directive in html:
-<nvd3-line-graph ...></nvd3-line-graph>
+######<nvd3-line-graph ...></nvd3-line-graph>
 ```
 Attributes:
 chartId(recommended): The unique id of the line chart on that page. It is required if there are multiple line charts on the same html page.
@@ -66,7 +69,7 @@ yformat(optional): The format of data on the y-axis.
 #####How to use?
 
 Angular-directive in html:
-<nvd3-scatter-graph ...></nvd3-scatter-graph>
+######<nvd3-scatter-graph ...></nvd3-scatter-graph>
 ```
 Attributes:
 chartId(recommended): The unique id of the scatter chart on that page. It is required if there are multiple scatter charts on the same html page.
@@ -86,7 +89,7 @@ yformat(optional): The format of data on the y-axis.
 #####How to use?
 
 Angular-directive in html:
-<nvd3-bar-graph ...></nvd3-bar-graph>
+######<nvd3-bar-graph ...></nvd3-bar-graph>
 ```
 Attributes:
 chartId(recommended): The unique id of the chart on that page. It is required if there are multiple charts on the same html page.
