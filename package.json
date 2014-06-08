@@ -1,0 +1,16 @@
+{
+    "name": "ng-nvd3",
+    "version": "0.0.1",
+    "authors": [
+        "sattarab"
+    ],
+    "license": "MIT",
+    "scripts": {
+        "start": "npm install"
+    },
+    "devDependencies": {
+        "grunt": "*",
+        "grunt-contrib-jshint": "*",
+        "grunt-contrib-watch": "*"
+    }
+}

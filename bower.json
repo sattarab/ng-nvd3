@@ -25,10 +25,16 @@
         "bower.json",
         "README.md",
         "examples",
-        "img"
+        "img",
+        "package.json",
+        "Gruntfile.js"
     ],
     "dependencies": {
         "angular": "~1.2.16",
         "nvd3": "~v1.1.15-beta"
+    },
+    "devDependencies": {
+        "grunt": "*",
+        "grunt-contrib-jshint": "*"
     }
 }
