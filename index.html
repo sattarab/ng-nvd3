@@ -1,0 +1,218 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>ng-nvd3 by sattarab</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>ng-nvd3</h1>
+        <p>A directive for nvd3 in AngularJS</p>
+
+        <p class="view"><a href="https://github.com/sattarab/ng-nvd3">View the Project on GitHub <small>sattarab/ng-nvd3</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/sattarab/ng-nvd3/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/sattarab/ng-nvd3/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/sattarab/ng-nvd3">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h2>
+<a name="angularjs-directive-for-nvd3js-charts" class="anchor" href="#angularjs-directive-for-nvd3js-charts"><span class="octicon octicon-link"></span></a>AngularJS directive for nvd3.js charts</h2>
+
+<p>This is a nvd3 directive for AngularJS. It currently supports pie chart, line chart, scatter chart, bar chart and line-plus-bar graph. This is a lightweight directive which has the ability to allow the output graph to be responsive.</p>
+
+<h3>
+<a name="basic-setup" class="anchor" href="#basic-setup"><span class="octicon octicon-link"></span></a>Basic Setup</h3>
+
+<p>Using bower:
+bower install ng-nvd3 --save</p>
+
+<pre><code>Note: This directive module is dependent on angular, d3 and nvd3
+1. Install the directive using bower install ng-nvd3 --save
+2. This would add install the dependencies required for this directive and the directive itself
+3. Include the dependencies in the &lt;head&gt; tag of the html document. For example
+  &lt;link rel="stylesheet" href="bower_components/nvd3/nv.d3.css"/&gt;
+  &lt;script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"&gt;&lt;/script&gt;
+  &lt;script type="text/javascript" src="http://d3js.org/d3.v3.min.js"&gt;&lt;/script&gt;
+  &lt;script src="bower_components/nvd3/nv.d3.js"&gt;&lt;/script&gt;
+  &lt;script src="bower_components/angularjs-nvd3-directives/dist/angularjs-nvd3-directives.js"&gt;&lt;/script&gt;
+
+  Note: I have added d3.v3.min.js as a direct link in the script tag above. You can either download the d3.v3.js from this repository provided in lib folder or use the direct link as shown above
+</code></pre>
+
+<h3>
+<a name="api" class="anchor" href="#api"><span class="octicon octicon-link"></span></a>API</h3>
+
+<h4>
+<a name="pie-chart" class="anchor" href="#pie-chart"><span class="octicon octicon-link"></span></a>Pie Chart</h4>
+
+<p><img src="https://github.com/sattarab/ng-nvd3/raw/master/img/pie-chart.png" alt="Pie Chart" title="Pie Chart"></p>
+
+<h5>
+<a name="how-to-use" class="anchor" href="#how-to-use"><span class="octicon octicon-link"></span></a>How to use?</h5>
+
+<pre><code>Angular-directive in html:
+&lt;nvd3-pie-chart ...&gt;&lt;/nvd3-pie-chart&gt;
+
+Attributes:
+chartId(recommended): The unique id of the pie chart on that page. It is required if there are multiple pie charts on the same html page.
+colors(optional): For custom color you can provide color as an array of hex or rgb values.
+data(required): The data that is to be displayed on the pie chart. 
+div-class(optional): For custom styling of the div that would contain the chart.
+donut(optional): If provided and is true the output graph would be a donut pie chart.
+duration(optional): The transition duration.  The default value is 250.
+half(optional): If provided and is true the output graph is halved.
+height(required): The height of the output graph
+hideLegend(optional): If provided and is true the output graph does not have a legend.
+responsive(optional): If provided and is true the output graph is responsive.
+width(optional): The width of the output graph.
+</code></pre>
+
+<h4>
+<a name="line-graph" class="anchor" href="#line-graph"><span class="octicon octicon-link"></span></a>Line Graph</h4>
+
+<p><img src="https://github.com/sattarab/ng-nvd3/raw/master/img/line-chart.png" alt="Line Chart" title="Line Chart"></p>
+
+<h5>
+<a name="how-to-use-1" class="anchor" href="#how-to-use-1"><span class="octicon octicon-link"></span></a>How to use?</h5>
+
+<pre><code>Angular-directive in html:
+&lt;nvd3-line-graph ...&gt;&lt;/nvd3-line-graph&gt;
+
+Attributes:
+chartId(recommended): The unique id of the line chart on that page. It is required if there are multiple line charts on the same html page.
+data(required): The data that is to be displayed on the line chart. 
+div-class(optional): For custom styling of the div that would contain the chart. This can be used for setting the width and height of the div that contains the line chart.
+duration(optional): The transition duration. The default value is 250.
+guide(optional): If provided and is true the output graph does have a legend.
+height(required): The height of the output graph
+responsive(optional): If provided and is true the output graph is responsive.
+width(optional): The width of the output graph.
+xlabel(optional): The x-axis label of the graph.
+xformat(optional): The format of data on the x-axis.
+ylabel(optional): The y-axis label of the graph.
+yformat(optional): The format of data on the y-axis.
+</code></pre>
+
+<h4>
+<a name="scatter-graph" class="anchor" href="#scatter-graph"><span class="octicon octicon-link"></span></a>Scatter Graph</h4>
+
+<h5>
+<a name="how-to-use-2" class="anchor" href="#how-to-use-2"><span class="octicon octicon-link"></span></a>How to use?</h5>
+
+<pre><code>Angular-directive in html:
+&lt;nvd3-scatter-graph ...&gt;&lt;/nvd3-scatter-graph&gt;
+
+Attributes:
+chartId(recommended): The unique id of the scatter chart on that page. It is required if there are multiple scatter charts on the same html page.
+data(required): The data that is to be displayed on the scatter chart. 
+div-class(optional): For custom styling of the div that would contain the chart. This can be used for setting the width and height of the div that contains the scatter chart.
+duration(optional): The transition duration. The default value is 250.
+forceLine(optional): If provided and is true a line is drawn through the points on the scatter plot.
+height(required): The height of the output graph.
+responsive(optional): If provided and is true the graph is responsive.
+width(optional): The width of the output graph.
+xformat(optional): The format of data on the x-axis.
+yformat(optional): The format of data on the y-axis.
+</code></pre>
+
+<h4>
+<a name="bar-graph" class="anchor" href="#bar-graph"><span class="octicon octicon-link"></span></a>Bar Graph</h4>
+
+<p><img src="https://github.com/sattarab/ng-nvd3/raw/master/img/horizontal-bar.png" alt="Bar Chart" title="Horizontal Bar Chart"></p>
+
+<h5>
+<a name="how-to-use-3" class="anchor" href="#how-to-use-3"><span class="octicon octicon-link"></span></a>How to use?</h5>
+
+<pre><code>Angular-directive in html:
+&lt;nvd3-bar-graph ...&gt;&lt;/nvd3-bar-graph&gt;
+
+Attributes:
+chartId(recommended): The unique id of the chart on that page. It is required if there are multiple charts on the same html page.
+data(required): The data that is to be displayed on the chart. 
+div-class(optional): For custom styling of the div that would contain the chart. This can be used for setting the width and height of the div that contains the horizontal bar chart.
+duration(optional): The transition duration. The default value is 250.
+height(required): The height of the output graph.
+horizontal(optional): Default false.If provided and is true the resultant output graph is a horizontal bar graph.
+responsive(optional): If provided and is true the output graph is responsive.
+showControls(optional): If provided and true it would show controls for the graph.
+showValues(optional): If provided and true it would show values on the graph.
+tooltips(optional): If provided and true it would show tooltip when the values are hovered on the graph.
+width(optional): The width of the output graph.
+yformat(optional): The format of data on the y-axis.
+</code></pre>
+
+<h4>
+<a name="line-plus-bar-graph" class="anchor" href="#line-plus-bar-graph"><span class="octicon octicon-link"></span></a>Line Plus Bar Graph</h4>
+
+<p><img src="https://github.com/sattarab/ng-nvd3/raw/master/img/line-plus-bar-chart.png" alt="Line Plus Bar Graph" title="Line Plus Bar Graph"></p>
+
+<h5>
+<a name="how-to-use-4" class="anchor" href="#how-to-use-4"><span class="octicon octicon-link"></span></a>How to use?</h5>
+
+<pre><code>Angular-directive in html:
+&lt;nvd3-line-plus-bar-graph ...&gt;&lt;/nvd3-line-plus-bar-graph&gt;
+
+Attributes:
+chartId(recommended): The unique id of the chart on that page. It is required if there are multiple charts on the same html page.
+data(required): The data that is to be displayed on the chart. 
+div-class(optional): For custom styling of the div that would contain the chart. This can be used for setting the width and height of the div that contains the horizontal bar chart.
+duration(optional): The transition duration. The default value is 250.
+height(required): The height of the output graph.
+responsive(optional): If provided and is true the output graph is responsive.
+width(optional): The width of the output graph.
+xformat(optional): The format of data on the x-axis.
+xlabel(optional): The x-axis label of the graph.
+y1format(optional): The format of data on the y1-axis.
+y2format(optional): The format of data on the y2-axis.
+y1label(optional): The y1-axis label of the graph.
+y2label(optional): The y2-axis label of the graph.
+
+</code></pre>
+
+<h3>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h3>
+
+<p>The MIT License</p>
+
+<p>Copyright (c) sattarab email: <a href="mailto:c2sattara1@gmail.com">c2sattara1@gmail.com</a></p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/sattarab">sattarab</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
