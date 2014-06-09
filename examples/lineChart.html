@@ -76,7 +76,10 @@
     <!-- meta -->
   </head>
   <body ng-controller="LineChartCtrl">
-    <h3>Line Chart</h3>
+    <h4>Line Chart - Responsive</h4>
     <nvd3-line-graph chart-id="chart1" data="data" responsive="true" width="1000" height="500" duration="2000" guide="true" xlabel="X-AXIS" ylabel="Y-AXIS"></nvd3-line-graph>
+    <hr>
+    <h4>Line Chart - UnResponsive</h4>
+    <nvd3-line-graph chart-id="chart2" data="data" width="1000" height="500" duration="2000" guide="true" xlabel="X-AXIS" ylabel="Y-AXIS"></nvd3-line-graph>
   </body>
 </html>
