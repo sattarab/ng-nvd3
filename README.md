@@ -28,7 +28,6 @@ Note: This directive module is dependent on angular, d3 and nvd3
 ![Pie Chart](https://github.com/sattarab/ng-nvd3/raw/master/img/pie-chart.png "Pie Chart")
 #####How to use?
 
-```
 **Angular-directive in html:**
 <nvd3-pie-chart ...></nvd3-pie-chart>
 
@@ -48,14 +47,11 @@ Setting specific values for width or height in div-class would not make the grap
 **hideLegend(*optional*):** If provided and is true the output graph does not have a legend.
 **responsive(*optional*):** If provided and is true the output graph is responsive.
 **width(*optional*):** The width of the output graph.
-```
-
 
 ####Line Graph
 ![Line Chart](https://github.com/sattarab/ng-nvd3/raw/master/img/line-chart.png "Line Chart")
 #####How to use?
 
-```
 **Angular-directive in html:**
 <nvd3-line-graph ...></nvd3-line-graph>
 
@@ -76,13 +72,10 @@ Setting specific values for width or height in div-class would not make the grap
 **xformat(*optional*):** The format of data on the x-axis.
 **ylabel(*optional*):** The y-axis label of the graph.
 **yformat(*optional*):** The format of data on the y-axis.
-```
-
 
 ####Scatter Graph
 #####How to use?
 
-```
 **Angular-directive in html:**
 <nvd3-scatter-graph ...></nvd3-scatter-graph>
 
@@ -101,13 +94,11 @@ Setting specific values for width or height in div-class would not make the grap
 **width(*optional*):** The width of the output graph.
 **xformat(*optional*):** The format of data on the x-axis.
 **yformat(*optional*):** The format of data on the y-axis.
-```
 
 ####Bar Graph
 ![Bar Chart](https://github.com/sattarab/ng-nvd3/raw/master/img/horizontal-bar.png "Horizontal Bar Chart")
 #####How to use?
 
-```
 **Angular-directive in html:**
 <nvd3-bar-graph ...></nvd3-bar-graph>
 
@@ -128,13 +119,12 @@ Setting specific values for width or height in div-class would not make the grap
 **tooltips(*optional*):** If provided and true it would show tooltip when the values are hovered on the graph.
 **width(*optional*):** The width of the output graph.
 **yformat(*optional*):** The format of data on the y-axis.
-```
+
 
 ####Line Plus Bar Graph
 ![Line Plus Bar Graph](https://github.com/sattarab/ng-nvd3/raw/master/img/line-plus-bar-chart.png "Line Plus Bar Graph")
 #####How to use?
 
-```
 **Angular-directive in html:**
 <nvd3-line-plus-bar-graph ...></nvd3-line-plus-bar-graph>
 
@@ -157,7 +147,6 @@ Setting specific values for width or height in div-class would not make the grap
 **y1label(*optional*):** The y1-axis label of the graph.
 **y2label(*optional*):** The y2-axis label of the graph.
 
-```
 
 ####Contributor(s)
 sattarab (c2sattara1@gmail.com)
