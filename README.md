@@ -117,6 +117,7 @@ yformat(optional): The format of data on the y-axis.
 ```
 Angular-directive in html:
 <nvd3-line-plus-bar-graph ...></nvd3-line-plus-bar-graph>
+
 Attributes:
 chartId(recommended): The unique id of the chart on that page. It is required if there are multiple charts on the same html page.
 data(required): The data that is to be displayed on the chart. 
@@ -131,6 +132,8 @@ y1format(optional): The format of data on the y1-axis.
 y2format(optional): The format of data on the y2-axis.
 y1label(optional): The y1-axis label of the graph.
 y2label(optional): The y2-axis label of the graph.
+
+```
 
 ###License
 The MIT License
