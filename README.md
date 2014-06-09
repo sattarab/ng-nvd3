@@ -28,8 +28,10 @@ Note: This directive module is dependent on angular, d3 and nvd3
 ![Pie Chart](https://github.com/sattarab/ng-nvd3/raw/master/img/pie-chart.png "Pie Chart")
 #####How to use?
 
+```
 **Angular-directive in html:**
 <nvd3-pie-chart ...></nvd3-pie-chart>
+```
 
 **Important Note:**
 Setting specific values for width or height in div-class would not make the graph responsive anymore.<br>
@@ -52,8 +54,10 @@ Setting specific values for width or height in div-class would not make the grap
 ![Line Chart](https://github.com/sattarab/ng-nvd3/raw/master/img/line-chart.png "Line Chart")
 #####How to use?
 
+```
 **Angular-directive in html:**
 <nvd3-line-graph ...></nvd3-line-graph>
+```
 
 **Important Note:**
 Setting specific values for width or height in div-class would not make the graph responsive anymore.<br>
@@ -76,8 +80,10 @@ Setting specific values for width or height in div-class would not make the grap
 ####Scatter Graph
 #####How to use?
 
+```
 **Angular-directive in html:**
 <nvd3-scatter-graph ...></nvd3-scatter-graph>
+```
 
 **Important Note:**
 Setting specific values for width or height in div-class would not make the graph responsive anymore.<br>
@@ -99,8 +105,10 @@ Setting specific values for width or height in div-class would not make the grap
 ![Bar Chart](https://github.com/sattarab/ng-nvd3/raw/master/img/horizontal-bar.png "Horizontal Bar Chart")
 #####How to use?
 
+```
 **Angular-directive in html:**
 <nvd3-bar-graph ...></nvd3-bar-graph>
+```
 
 **Important Note:**
 Setting specific values for width or height in div-class would not make the graph responsive anymore.<br>
@@ -125,8 +133,10 @@ Setting specific values for width or height in div-class would not make the grap
 ![Line Plus Bar Graph](https://github.com/sattarab/ng-nvd3/raw/master/img/line-plus-bar-chart.png "Line Plus Bar Graph")
 #####How to use?
 
+```
 **Angular-directive in html:**
 <nvd3-line-plus-bar-graph ...></nvd3-line-plus-bar-graph>
+```
 
 **Important Note:**
 Setting specific values for width or height in div-class would not make the graph responsive anymore.<br>
