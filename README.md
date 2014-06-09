@@ -1,5 +1,5 @@
 ##AngularJS directive for nvd3.js charts
-This is a nvd3 directive for AngularJS. It currently supports pie chart, line chart, scatter chart and bar chart. This is a lightweight directive which has the ability to allow the output graph to be responsive.
+This is a nvd3 directive for AngularJS. It currently supports pie chart, line chart, scatter chart, bar chart and line-plus-bar graph. This is a lightweight directive which has the ability to allow the output graph to be responsive.
 
 ###Basic Setup
 Using bower:
@@ -26,13 +26,13 @@ Note: This directive module is dependent on angular, d3 and nvd3
 
 ```
 Angular-directive in html:
-######<nvd3-pie-chart ...></nvd3-pie-chart>
+<nvd3-pie-chart ...></nvd3-pie-chart>
 
 Attributes:
 chartId(recommended): The unique id of the pie chart on that page. It is required if there are multiple pie charts on the same html page.
 colors(optional): For custom color you can provide color as an array of hex or rgb values.
 data(required): The data that is to be displayed on the pie chart. 
-divClass(optional): For custom styling of the div that would contain the chart.
+div-class(optional): For custom styling of the div that would contain the chart.
 donut(optional): If provided and is true the output graph would be a donut pie chart.
 duration(optional): The transition duration.  The default value is 250.
 half(optional): If provided and is true the output graph is halved.
@@ -49,11 +49,12 @@ width(optional): The width of the output graph.
 
 ```
 Angular-directive in html:
-######<nvd3-line-graph ...></nvd3-line-graph>
+<nvd3-line-graph ...></nvd3-line-graph>
+
 Attributes:
 chartId(recommended): The unique id of the line chart on that page. It is required if there are multiple line charts on the same html page.
 data(required): The data that is to be displayed on the line chart. 
-divClass(optional): For custom styling of the div that would contain the chart. This can be used for setting the width and height of the div that contains the line chart.
+div-class(optional): For custom styling of the div that would contain the chart. This can be used for setting the width and height of the div that contains the line chart.
 duration(optional): The transition duration. The default value is 250.
 guide(optional): If provided and is true the output graph does have a legend.
 height(required): The height of the output graph
@@ -71,11 +72,12 @@ yformat(optional): The format of data on the y-axis.
 
 ```
 Angular-directive in html:
-######<nvd3-scatter-graph ...></nvd3-scatter-graph>
+<nvd3-scatter-graph ...></nvd3-scatter-graph>
+
 Attributes:
 chartId(recommended): The unique id of the scatter chart on that page. It is required if there are multiple scatter charts on the same html page.
 data(required): The data that is to be displayed on the scatter chart. 
-divClass(optional): For custom styling of the div that would contain the chart. This can be used for setting the width and height of the div that contains the scatter chart.
+div-class(optional): For custom styling of the div that would contain the chart. This can be used for setting the width and height of the div that contains the scatter chart.
 duration(optional): The transition duration. The default value is 250.
 forceLine(optional): If provided and is true a line is drawn through the points on the scatter plot.
 height(required): The height of the output graph.
@@ -91,11 +93,12 @@ yformat(optional): The format of data on the y-axis.
 
 ```
 Angular-directive in html:
-######<nvd3-bar-graph ...></nvd3-bar-graph>
+<nvd3-bar-graph ...></nvd3-bar-graph>
+
 Attributes:
 chartId(recommended): The unique id of the chart on that page. It is required if there are multiple charts on the same html page.
-data(required): The data that is to be displayed on the horizontal chart. 
-divClass(optional): For custom styling of the div that would contain the chart. This can be used for setting the width and height of the div that contains the horizontal bar chart.
+data(required): The data that is to be displayed on the chart. 
+div-class(optional): For custom styling of the div that would contain the chart. This can be used for setting the width and height of the div that contains the horizontal bar chart.
 duration(optional): The transition duration. The default value is 250.
 height(required): The height of the output graph.
 horizontal(optional): Default false.If provided and is true the resultant output graph is a horizontal bar graph.
@@ -106,6 +109,28 @@ tooltips(optional): If provided and true it would show tooltip when the values a
 width(optional): The width of the output graph.
 yformat(optional): The format of data on the y-axis.
 ```
+
+####Line Plus Bar Graph
+![Line Plus Bar Graph](https://github.com/sattarab/ng-nvd3/raw/master/img/line-plus-bar-chart.png "Line Plus Bar Graph")
+#####How to use?
+
+```
+Angular-directive in html:
+<nvd3-line-plus-bar-graph ...></nvd3-line-plus-bar-graph>
+Attributes:
+chartId(recommended): The unique id of the chart on that page. It is required if there are multiple charts on the same html page.
+data(required): The data that is to be displayed on the chart. 
+div-class(optional): For custom styling of the div that would contain the chart. This can be used for setting the width and height of the div that contains the horizontal bar chart.
+duration(optional): The transition duration. The default value is 250.
+height(required): The height of the output graph.
+responsive(optional): If provided and is true the output graph is responsive.
+width(optional): The width of the output graph.
+xformat(optional): The format of data on the x-axis.
+xlabel(optional): The x-axis label of the graph.
+y1format(optional): The format of data on the y1-axis.
+y2format(optional): The format of data on the y2-axis.
+y1label(optional): The y1-axis label of the graph.
+y2label(optional): The y2-axis label of the graph.
 
 ###License
 The MIT License

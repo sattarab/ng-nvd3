@@ -1,6 +1,6 @@
 {
     "name": "ng-nvd3",
-    "version": "0.0.2",
+    "version": "0.0.1",
     "main": "./dist/ng-nvd3.js",
     "description": "AngularJs nvd3 directives",
     "authors": [
@@ -30,7 +30,7 @@
         "Gruntfile.js"
     ],
     "dependencies": {
-        "angular": "~1.2.16",
+        "angular": ">=1.2.16",
         "nvd3": "~v1.1.15-beta"
     },
     "devDependencies": {

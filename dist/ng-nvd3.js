@@ -284,5 +284,76 @@
                 }
             }
         };
+    })
+    /**
+    * Creates a Line Plus Bar Chart
+    */
+    .directive('nvd3LinePlusBarGraph', function (){
+        return{
+            restrict: 'E',
+            scope: {
+                chartId: '@',
+                data: '=',
+                divClass: '@',
+                duration: '@',
+                height: '@',
+                responsive: '@',
+                width: '@',
+                xformat: '@',
+                xlabel: '@',
+                y1format: '@',
+                y2format: '@',
+                y1label: '@',
+                y2label: '@'
+            },
+            link: function (scope, element, attrs){
+                scope.$watch('data', function (data){
+                    if (data){
+                        nv.addGraph(function (){
+                            var chart = nv.models.linePlusBarChart()
+                                .x(function (d, i){ return i; })
+                                .y(function (d, i){ return d[1]; })
+                                .margin({ left: 75, right: 75 });
+                            
+                            chart.xAxis.axisLabel(scope.xlabel)
+                                .tickFormat(scope.xformat);
+                            
+                            chart.y1Axis.axisLabel(scope.y1label)
+                                .tickFormat(scope.y1format);
+                            
+                            chart.y2Axis.axisLabel(scope.y2label)
+                                .tickFormat(scope.y2format);
+                            
+                            chart.bars.forceY([0]).padData(false);
+                            
+                            if (scope.responsive !== 'true'){
+                                chart.width(scope.width).height(scope.height);
+                                d3.select('#' + scope.chartId + ' svg')
+                                    .attr('viewBox', '0 0 ' + scope.width + ' ' + scope.height);
+                            }
+                            
+                            d3.select('#' + scope.chartId + ' svg')
+                                .datum(scope.data)
+                                .attr('width', scope.width)
+                                .attr('height', scope.height)
+                                .transition().duration(scope.duration == null ? 250 : scope.duration)
+                                .call(chart);
+                            
+                            nv.utils.windowResize(chart.update);
+
+                            return chart;
+                        });
+                    }
+                });
+            },
+            template: function (element, attrs){
+                if (attrs.respsonsive ===  'true'){
+                    element.append('<div id="'+ attrs.chartId +'"><svg></svg></div>');
+                }
+                else{
+                    element.append('<div id="'+ attrs.chartId +'" class="'+ attrs.divClass +'"><svg></svg></div>');   
+                }
+            }
+        };
     });
 })();
