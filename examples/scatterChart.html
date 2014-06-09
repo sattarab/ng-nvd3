@@ -7,7 +7,7 @@
     <style>
     .scatterChart{
         width: 1200px;
-        height: 1200px;
+        height: 500px;
     }
     </style>
     <!-- scripts -->
@@ -78,6 +78,6 @@
     <!-- meta -->
   </head>
   <body ng-controller="ScatterChartCtrl">
-    <nvd3-scatter-graph data="data" div-class="scatterChart" width="1000" height="1000" duration="2000" force-line="true"></nvd3-scatter-graph>
+    <nvd3-scatter-graph data="data" width="1000" height="600" duration="2000" force-line="true" responsive="true"></nvd3-scatter-graph>
   </body>
 </html>

@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="./css/nv.d3.css"/>
     <style>
     .pieChart{
-        width: 400px;
-        height: 400px;
+        width: 600px;
+        height: 600px;
         overflow: hidden;
     }
     </style>
@@ -60,10 +60,10 @@
     <!-- meta -->
   </head>
   <body ng-controller="PieChartCtrl">
-    <h3>Real Time Changing pie chart</h3>
-    <nvd3-pie-chart chart-id="chart1" data="data" div-class="pieChart" width="400" height="400" duration="1000" label-type="percent"></nvd3-pie-chart>
+    <h3>Responsive Real Time Changing pie chart</h3>
+    <nvd3-pie-chart chart-id="chart1" data="data" width="700" height="700" duration="1000" label-type="percent" responsive="true"></nvd3-pie-chart>
     <hr>
-    <h3>Fixed data pie chart</p>
-    <nvd3-pie-chart chart-id="chart2" data="fixedData" div-class="pieChart" width="400" height="400" duration="1000" label-type="percent" colors="colors"></nvd3-pie-chart>
+    <h3>UnResponsive Fixed data pie chart</p>
+    <nvd3-pie-chart chart-id="chart2" data="fixedData" div-class="pieChart" width="700" height="700" duration="1000" label-type="percent" colors="colors"></nvd3-pie-chart>
   </body>
 </html>

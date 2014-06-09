@@ -17,7 +17,7 @@
     *       }
     *     ];
     */
-    .directive('nvd3PieChart', function (){
+    .directive('nvd3PieChart', function ($window){
         return{
             restrict: 'E',
             scope: {
@@ -55,17 +55,28 @@
                                     .endAngle(function (d) { return d.endAngle / 2 - Math.PI / 2; });
                             }
 
-                            if (scope.responsive !== 'true'){
+                            d3.select('#' + scope.chartId +' svg').datum(scope.data)
+                                .attr('width', scope.width)
+                                .attr('height', scope.height);
+                            
+                            if (scope.responsive === 'true'){
+                                chart.width(Math.min(scope.width, angular.element(document.querySelector('#' + scope.chartId))[0].offsetWidth))
+                                    .height(Math.min(scope.height, angular.element(document.querySelector('#' + scope.chartId))[0].offsetHeight));
+                            
+                                 angular.element($window).on('resize', function (){
+                                    chart.width(Math.min(scope.width, angular.element(document.querySelector('#' + scope.chartId))[0].offsetWidth))
+                                        .height(Math.min(scope.height, angular.element(document.querySelector('#' + scope.chartId))[0].offsetHeight));
+                                });
+                            }
+                            else{
                                 chart.width(scope.width).height(scope.height);
                             }
-
-                            d3.select('#' + scope.chartId + " svg").datum(scope.data)
-                                .attr('width', scope.width)
-                                .attr('height', scope.height)
-                                .transition().duration(scope.duration == null ? 250 : scope.duration)
+                            
+                            d3.select('#' + scope.chartId +' svg').transition().duration(scope.duration == null ? 250 : scope.duration)
                                 .call(chart);
-
+                                
                             nv.utils.windowResize(chart.update);
+                            
                             return chart;
                         });   
                     }
@@ -84,7 +95,7 @@
     /**
     * Creates a Line Graph
     */
-    .directive('nvd3LineGraph', function (){
+    .directive('nvd3LineGraph', function ($window){
         return{
             restrict: 'E',
             scope: {
@@ -117,22 +128,30 @@
                                 .axisLabel(scope.ylabel)
                                 .axisLabelDistance(42)
                                 .tickFormat(d3.format(scope.yformat));
-
-                            if (scope.responsive !== 'true') {
-                                chart.width(scope.width).height(scope.height);
-            
-                                d3.select('#' + scope.chartId +' svg')
-                                    .attr('viewBox', '0 0 ' + scope.width + ' ' + scope.height);
-                            }
-
+                            
                             d3.select('#' + scope.chartId +' svg').datum(scope.data)
                                 .attr('width', scope.width)
                                 .attr('height', scope.height)
-                                .attr('perserveAspectRatio', 'xMinYMid')
-                                .transition().duration(scope.duration == null ? 250 : scope.duration)
+                                .attr('perserveAspectRatio', 'xMinYMid');
+                            
+                            if (scope.responsive === 'true'){
+                                chart.width(Math.min(scope.width, angular.element(document.querySelector('#' + scope.chartId))[0].offsetWidth))
+                                    .height(Math.min(scope.height, angular.element(document.querySelector('#' + scope.chartId))[0].offsetHeight));
+                            
+                                angular.element($window).on('resize', function (){
+                                    chart.width(Math.min(scope.width, angular.element(document.querySelector('#' + scope.chartId))[0].offsetWidth))
+                                        .height(Math.min(scope.height, angular.element(document.querySelector('#' + scope.chartId))[0].offsetHeight));
+                                });
+                            }
+                            else{
+                                chart.width(scope.width).height(scope.height);
+                            }
+                            
+                            d3.select('#' + scope.chartId +' svg').transition().duration(scope.duration == null ? 250 : scope.duration)
                                 .call(chart);
-
+                                
                             nv.utils.windowResize(chart.update);
+                            
                             return chart;
                         });
                     }
@@ -151,7 +170,7 @@
     /**
     * Creates a Scatter Graph
     */
-    .directive('nvd3ScatterGraph', function (){
+    .directive('nvd3ScatterGraph', function ($window){
         return{
             restrict: 'E',
             scope: {
@@ -160,7 +179,9 @@
                 divClass: '@',
                 duration: '@',
                 forceLine: '@',
+                height: '@',
                 responsive: '@',
+                width: '@',
                 xformat: '@',
                 yformat: '@'
             
@@ -187,18 +208,30 @@
                             chart.tooltipContent(function (key, x, y) {
                                 return "<h3>" + key + "</h3><p>" + y + " at " + x + "</p>";
                             });
-          
-                            if (scope.responsive !== 'true') {
-                                chart.width(scope.width).height(scope.height);
-                            }
-          
-                            d3.select('#' + scope.chartId + ' svg').datum(scope.data)
+                            
+                            d3.select('#' + scope.chartId +' svg').datum(scope.data)
                                 .attr('width', scope.width)
                                 .attr('height', scope.height)
-                                .transition().duration(scope.duration == null ? 250 : scope.duration)
+                                .attr('perserveAspectRatio', 'xMinYMid');
+                            
+                            if (scope.responsive === 'true'){
+                                chart.width(Math.min(scope.width, angular.element(document.querySelector('#' + scope.chartId))[0].offsetWidth))
+                                    .height(Math.min(scope.height, angular.element(document.querySelector('#' + scope.chartId))[0].offsetHeight));
+                            
+                                angular.element($window).on('resize', function (){
+                                    chart.width(Math.min(scope.width, angular.element(document.querySelector('#' + scope.chartId))[0].offsetWidth))
+                                        .height(Math.min(scope.height, angular.element(document.querySelector('#' + scope.chartId))[0].offsetHeight));
+                                });
+                            }
+                            else{
+                                chart.width(scope.width).height(scope.height);
+                            }
+                            
+                            d3.select('#' + scope.chartId +' svg').transition().duration(scope.duration == null ? 250 : scope.duration)
                                 .call(chart);
-          
+                                
                             nv.utils.windowResize(chart.update);
+                            
                             return chart;
                         });
                     }
@@ -217,7 +250,7 @@
     /**
     * Creates a Multi-Bar Graph
     */
-    .directive('nvd3BarGraph', function (){
+    .directive('nvd3BarGraph', function ($window){
         return{
             restrict: 'E',
             scope: {
@@ -255,21 +288,31 @@
                                 .showControls(scope.showControls === 'true' ? true : false)
                                 .yAxis.tickFormat(d3.format(scope.yformat));
                         
-                            if (scope.responsive !== 'true'){
-                                chart.width(scope.width).height(scope.height);
-                                d3.select('#' + scope.chartId + ' svg')
-                                    .attr('viewBox', '0 0 ' + scope.width + ' ' + scope.height);
-                            }
+                            chart.width(scope.width).height(scope.height);
 
-                            d3.select('#' + scope.chartId + ' svg')
-                                .datum(scope.data)
+                            d3.select('#' + scope.chartId +' svg').datum(scope.data)
                                 .attr('width', scope.width)
                                 .attr('height', scope.height)
-                                .transition().duration(scope.duration == null ? 250 : scope.duration)
+                                .attr('perserveAspectRatio', 'xMinYMid');
+                            
+                            if (scope.responsive === 'true'){
+                                chart.width(Math.min(scope.width, angular.element(document.querySelector('#' + scope.chartId))[0].offsetWidth))
+                                    .height(Math.min(scope.height, angular.element(document.querySelector('#' + scope.chartId))[0].offsetHeight));
+                            
+                                angular.element($window).on('resize', function (){
+                                    chart.width(Math.min(scope.width, angular.element(document.querySelector('#' + scope.chartId))[0].offsetWidth))
+                                        .height(Math.min(scope.height, angular.element(document.querySelector('#' + scope.chartId))[0].offsetHeight));
+                                });
+                            }
+                            else{
+                                chart.width(scope.width).height(scope.height);
+                            }
+                            
+                            d3.select('#' + scope.chartId +' svg').transition().duration(scope.duration == null ? 250 : scope.duration)
                                 .call(chart);
-
+                                
                             nv.utils.windowResize(chart.update);
-
+                            
                             return chart;
                         });
                     }
@@ -288,7 +331,7 @@
     /**
     * Creates a Line Plus Bar Chart
     */
-    .directive('nvd3LinePlusBarGraph', function (){
+    .directive('nvd3LinePlusBarGraph', function ($window){
         return{
             restrict: 'E',
             scope: {
@@ -326,19 +369,29 @@
                             
                             chart.bars.forceY([0]).padData(false);
                             
-                            if (scope.responsive !== 'true'){
-                                chart.width(scope.width).height(scope.height);
-                                d3.select('#' + scope.chartId + ' svg')
-                                    .attr('viewBox', '0 0 ' + scope.width + ' ' + scope.height);
-                            }
+                            chart.width(scope.width).height(scope.height);
                             
-                            d3.select('#' + scope.chartId + ' svg')
-                                .datum(scope.data)
+                            d3.select('#' + scope.chartId +' svg').datum(scope.data)
                                 .attr('width', scope.width)
                                 .attr('height', scope.height)
-                                .transition().duration(scope.duration == null ? 250 : scope.duration)
-                                .call(chart);
+                                .attr('perserveAspectRatio', 'xMinYMid');
                             
+                            if (scope.responsive === 'true'){
+                                chart.width(Math.min(scope.width, angular.element(document.querySelector('#' + scope.chartId))[0].offsetWidth))
+                                    .height(Math.min(scope.height, angular.element(document.querySelector('#' + scope.chartId))[0].offsetHeight));
+                            
+                                angular.element($window).on('resize', function (){
+                                    chart.width(Math.min(scope.width, angular.element(document.querySelector('#' + scope.chartId))[0].offsetWidth))
+                                        .height(Math.min(scope.height, angular.element(document.querySelector('#' + scope.chartId))[0].offsetHeight));
+                                });
+                            }
+                            else{
+                                chart.width(scope.width).height(scope.height);
+                            }
+                            
+                            d3.select('#' + scope.chartId +' svg').transition().duration(scope.duration == null ? 250 : scope.duration)
+                                .call(chart);
+                                
                             nv.utils.windowResize(chart.update);
 
                             return chart;

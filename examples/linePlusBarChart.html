@@ -38,7 +38,10 @@
     <!-- meta -->
   </head>
   <body ng-controller="LineChartCtrl">
-    <h3>Line Chart</h3>
-    <nvd3-line-plus-bar-graph chart-id="chart1" data="data" div-class="lineBarChart" responsive="true" width="1000" height="400" duration="2000" xlabel="X-AXIS" y1label="Y-AXIS" y2label="Y-AXIS"></nvd3-line-plus-bar-graph>
+    <h3>Responsive Line Chart</h3>
+    <nvd3-line-plus-bar-graph chart-id="chart1" data="data" responsive="true" width="1000" height="400" duration="2000" xlabel="X-AXIS" y1label="Y-AXIS" y2label="Y-AXIS"></nvd3-line-plus-bar-graph>
+    <hr>
+    <h3>UnResponsive Line Chart</h3>
+    <nvd3-line-plus-bar-graph chart-id="chart2" data="data" responsive="false" width="1000" height="400" duration="2000" xlabel="X-AXIS" y1label="Y-AXIS" y2label="Y-AXIS"></nvd3-line-plus-bar-graph>
   </body>
 </html>
