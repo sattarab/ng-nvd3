@@ -1,6 +1,9 @@
 ##AngularJS directive for nvd3.js charts
 This is a nvd3 directive for AngularJS. It currently supports pie chart, line chart, scatter chart, bar chart and line-plus-bar graph. This is a lightweight directive which has the ability to allow the output graph to be responsive.
 
+###Project
+Project page at: http://sattarab.github.io/ng-nvd3
+
 ###Basic Setup
 Using bower:
 bower install ng-nvd3 --save
