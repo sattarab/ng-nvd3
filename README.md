@@ -19,7 +19,7 @@ Note: This directive module is dependent on angular, d3 and nvd3
   <script src="bower_components/nvd3/nv.d3.js"></script>
   <script src="bower_components/angularjs-nvd3-directives/dist/angularjs-nvd3-directives.js"></script>
 4. Add the dependency of the directive in the angular app
-  
+
   Note: I have added d3.v3.min.js as a direct link in the script tag above. You can either download the d3.v3.js from this repository provided in lib folder or use the direct link as shown above
 ```
 
@@ -160,6 +160,12 @@ Setting specific values for width or height in div-class would not make the grap
 
 ####Contributor(s)
 sattarab (c2sattara1@gmail.com)
+
+####Issues
+If you find any issues please log it with a little description of how to re-produce it. I will try to resolve as soon as possible.
+
+####Version
+0.0.3 (Current latest stable version)
 
 ###License
 The MIT License
