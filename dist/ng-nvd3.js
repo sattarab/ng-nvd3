@@ -58,11 +58,11 @@
                             d3.select('#' + scope.chartId +' svg').datum(scope.data)
                                 .attr('width', scope.width)
                                 .attr('height', scope.height);
-                            
+
                             if (scope.responsive === 'true'){
                                 chart.width(Math.min(scope.width, angular.element(document.querySelector('#' + scope.chartId))[0].offsetWidth))
                                     .height(Math.min(scope.height, angular.element(document.querySelector('#' + scope.chartId))[0].offsetHeight));
-                            
+
                                  angular.element($window).on('resize', function (){
                                     chart.width(Math.min(scope.width, angular.element(document.querySelector('#' + scope.chartId))[0].offsetWidth))
                                         .height(Math.min(scope.height, angular.element(document.querySelector('#' + scope.chartId))[0].offsetHeight));
@@ -71,23 +71,23 @@
                             else{
                                 chart.width(scope.width).height(scope.height);
                             }
-                            
+
                             d3.select('#' + scope.chartId +' svg').transition().duration(scope.duration == null ? 250 : scope.duration)
                                 .call(chart);
-                                
+
                             nv.utils.windowResize(chart.update);
-                            
+
                             return chart;
-                        });   
+                        });
                     }
-                });   
+                });
             },
             template: function (element, attrs){
                 if (attrs.respsonsive ===  'true'){
                     element.append('<div id="'+ attrs.chartId +'"><svg></svg></div>');
                 }
                 else{
-                    element.append('<div id="'+ attrs.chartId +'" class="'+ attrs.divClass +'"><svg></svg></div>');   
+                    element.append('<div id="'+ attrs.chartId +'" class="'+ attrs.divClass +'"><svg></svg></div>');
                 }
             }
         };
@@ -123,21 +123,21 @@
                             chart.xAxis
                                 .axisLabel(scope.xlabel)
                                 .tickFormat(d3.format(scope.xformat));
-                        
+
                             chart.yAxis
                                 .axisLabel(scope.ylabel)
                                 .axisLabelDistance(42)
                                 .tickFormat(d3.format(scope.yformat));
-                            
+
                             d3.select('#' + scope.chartId +' svg').datum(scope.data)
                                 .attr('width', scope.width)
                                 .attr('height', scope.height)
                                 .attr('perserveAspectRatio', 'xMinYMid');
-                            
+
                             if (scope.responsive === 'true'){
                                 chart.width(Math.min(scope.width, angular.element(document.querySelector('#' + scope.chartId))[0].offsetWidth))
                                     .height(Math.min(scope.height, angular.element(document.querySelector('#' + scope.chartId))[0].offsetHeight));
-                            
+
                                 angular.element($window).on('resize', function (){
                                     chart.width(Math.min(scope.width, angular.element(document.querySelector('#' + scope.chartId))[0].offsetWidth))
                                         .height(Math.min(scope.height, angular.element(document.querySelector('#' + scope.chartId))[0].offsetHeight));
@@ -146,12 +146,12 @@
                             else{
                                 chart.width(scope.width).height(scope.height);
                             }
-                            
+
                             d3.select('#' + scope.chartId +' svg').transition().duration(scope.duration == null ? 250 : scope.duration)
                                 .call(chart);
-                                
+
                             nv.utils.windowResize(chart.update);
-                            
+
                             return chart;
                         });
                     }
@@ -162,7 +162,7 @@
                     element.append('<div id="'+ attrs.chartId +'"><svg></svg></div>');
                 }
                 else{
-                    element.append('<div id="'+ attrs.chartId +'" class="'+ attrs.divClass +'"><svg></svg></div>');   
+                    element.append('<div id="'+ attrs.chartId +'" class="'+ attrs.divClass +'"><svg></svg></div>');
                 }
             }
         };
@@ -184,40 +184,41 @@
                 width: '@',
                 xformat: '@',
                 yformat: '@'
-            
+
             },
             link: function (scope, element, attrs){
                 scope.$watch('data', function (data){
                     if (data){
-                        nv.addGraph(function () {
+                        nv.addGraph(function (){
                             var chart, idx, hasLine = true;
-          
-                            for (idx = 0; idx < data.length; idx++) {
+
+                            for (idx = 0; idx < data.length; idx++){
                                 hasLine = hasLine && data[idx].slope && data[idx].intercept;
                             }
-          
-                            if (hasLine || scope.forceLine) {
+
+                            if (hasLine || scope.forceLine){
                                 chart = nv.models.scatterPlusLineChart();
-                            } else {
+                            }
+                            else{
                                 chart = nv.models.scatterChart();
                             }
-        
+
                             chart.showDistX(true).showDistY(true);
                             chart.xAxis.tickFormat(d3.format(scope.xformat));
                             chart.yAxis.tickFormat(d3.format(scope.yformat));
                             chart.tooltipContent(function (key, x, y) {
                                 return "<h3>" + key + "</h3><p>" + y + " at " + x + "</p>";
                             });
-                            
+
                             d3.select('#' + scope.chartId +' svg').datum(scope.data)
                                 .attr('width', scope.width)
                                 .attr('height', scope.height)
                                 .attr('perserveAspectRatio', 'xMinYMid');
-                            
+
                             if (scope.responsive === 'true'){
                                 chart.width(Math.min(scope.width, angular.element(document.querySelector('#' + scope.chartId))[0].offsetWidth))
                                     .height(Math.min(scope.height, angular.element(document.querySelector('#' + scope.chartId))[0].offsetHeight));
-                            
+
                                 angular.element($window).on('resize', function (){
                                     chart.width(Math.min(scope.width, angular.element(document.querySelector('#' + scope.chartId))[0].offsetWidth))
                                         .height(Math.min(scope.height, angular.element(document.querySelector('#' + scope.chartId))[0].offsetHeight));
@@ -226,12 +227,12 @@
                             else{
                                 chart.width(scope.width).height(scope.height);
                             }
-                            
+
                             d3.select('#' + scope.chartId +' svg').transition().duration(scope.duration == null ? 250 : scope.duration)
                                 .call(chart);
-                                
+
                             nv.utils.windowResize(chart.update);
-                            
+
                             return chart;
                         });
                     }
@@ -242,7 +243,7 @@
                     element.append('<div id="'+ attrs.chartId +'"><svg></svg></div>');
                 }
                 else{
-                    element.append('<div id="'+ attrs.chartId +'" class="'+ attrs.divClass +'"><svg></svg></div>');   
+                    element.append('<div id="'+ attrs.chartId +'" class="'+ attrs.divClass +'"><svg></svg></div>');
                 }
             }
         };
@@ -266,39 +267,37 @@
                 tooltips: '@',
                 width: '@',
                 yformat: '@'
-        
             },
             link: function (scope, element, attrs){
                 scope.$watch('data', function (data){
                     if (data){
                         nv.addGraph(function() {
                             var chart;
-                        
                             if (scope.horizontal === 'true'){
                                 chart = nv.models.multiBarHorizontalChart();
                             }
                             else{
                                 chart = nv.models.multiBarChart();
                             }
-                        
+
                             chart.x(function(d) { return d.label; })
                                 .y(function(d) { return d.value; })
-                                .tooltips(scope.tooltips === 'true' ? true : false) 
+                                .tooltips(scope.tooltips === 'true' ? true : false)
                                 .transitionDuration(scope.duration == null ? 250 : scope.duration)
                                 .showControls(scope.showControls === 'true' ? true : false)
                                 .yAxis.tickFormat(d3.format(scope.yformat));
-                        
+
                             chart.width(scope.width).height(scope.height);
 
                             d3.select('#' + scope.chartId +' svg').datum(scope.data)
                                 .attr('width', scope.width)
                                 .attr('height', scope.height)
                                 .attr('perserveAspectRatio', 'xMinYMid');
-                            
+
                             if (scope.responsive === 'true'){
                                 chart.width(Math.min(scope.width, angular.element(document.querySelector('#' + scope.chartId))[0].offsetWidth))
                                     .height(Math.min(scope.height, angular.element(document.querySelector('#' + scope.chartId))[0].offsetHeight));
-                            
+
                                 angular.element($window).on('resize', function (){
                                     chart.width(Math.min(scope.width, angular.element(document.querySelector('#' + scope.chartId))[0].offsetWidth))
                                         .height(Math.min(scope.height, angular.element(document.querySelector('#' + scope.chartId))[0].offsetHeight));
@@ -307,12 +306,12 @@
                             else{
                                 chart.width(scope.width).height(scope.height);
                             }
-                            
+
                             d3.select('#' + scope.chartId +' svg').transition().duration(scope.duration == null ? 250 : scope.duration)
                                 .call(chart);
-                                
+
                             nv.utils.windowResize(chart.update);
-                            
+
                             return chart;
                         });
                     }
@@ -323,7 +322,7 @@
                     element.append('<div id="'+ attrs.chartId +'"><svg></svg></div>');
                 }
                 else{
-                    element.append('<div id="'+ attrs.chartId +'" class="'+ attrs.divClass +'"><svg></svg></div>');   
+                    element.append('<div id="'+ attrs.chartId +'" class="'+ attrs.divClass +'"><svg></svg></div>');
                 }
             }
         };
@@ -357,29 +356,29 @@
                                 .x(function (d, i){ return i; })
                                 .y(function (d, i){ return d[1]; })
                                 .margin({ left: 75, right: 75 });
-                            
+
                             chart.xAxis.axisLabel(scope.xlabel)
                                 .tickFormat(scope.xformat);
-                            
+
                             chart.y1Axis.axisLabel(scope.y1label)
                                 .tickFormat(scope.y1format);
-                            
+
                             chart.y2Axis.axisLabel(scope.y2label)
                                 .tickFormat(scope.y2format);
-                            
+
                             chart.bars.forceY([0]).padData(false);
-                            
+
                             chart.width(scope.width).height(scope.height);
-                            
+
                             d3.select('#' + scope.chartId +' svg').datum(scope.data)
                                 .attr('width', scope.width)
                                 .attr('height', scope.height)
                                 .attr('perserveAspectRatio', 'xMinYMid');
-                            
+
                             if (scope.responsive === 'true'){
                                 chart.width(Math.min(scope.width, angular.element(document.querySelector('#' + scope.chartId))[0].offsetWidth))
                                     .height(Math.min(scope.height, angular.element(document.querySelector('#' + scope.chartId))[0].offsetHeight));
-                            
+
                                 angular.element($window).on('resize', function (){
                                     chart.width(Math.min(scope.width, angular.element(document.querySelector('#' + scope.chartId))[0].offsetWidth))
                                         .height(Math.min(scope.height, angular.element(document.querySelector('#' + scope.chartId))[0].offsetHeight));
@@ -388,10 +387,10 @@
                             else{
                                 chart.width(scope.width).height(scope.height);
                             }
-                            
+
                             d3.select('#' + scope.chartId +' svg').transition().duration(scope.duration == null ? 250 : scope.duration)
                                 .call(chart);
-                                
+
                             nv.utils.windowResize(chart.update);
 
                             return chart;
@@ -404,7 +403,7 @@
                     element.append('<div id="'+ attrs.chartId +'"><svg></svg></div>');
                 }
                 else{
-                    element.append('<div id="'+ attrs.chartId +'" class="'+ attrs.divClass +'"><svg></svg></div>');   
+                    element.append('<div id="'+ attrs.chartId +'" class="'+ attrs.divClass +'"><svg></svg></div>');
                 }
             }
         };
