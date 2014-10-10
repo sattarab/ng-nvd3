@@ -109,7 +109,9 @@
                 width: '@',
                 xlabel: '@',
                 xformat: '&',
+                xrotatelabels: '@',
                 ylabel: '@',
+                yrotatelabels: '@',
                 yformat: '&'
             },
             link: function (scope, element, attrs){
@@ -124,14 +126,20 @@
                                 scope.xformat = function() { return d3.format() };
                             if(!scope.yformat())
                                 scope.yformat = function() { return d3.format() };
+                            if(!scope.xrotatelabels)
+                                scope.xrotatelabels = 0;
+                            if(!scope.yrotatelabels)
+                                scope.yrotatelabels = 0;
 
                             chart.xAxis
                                 .axisLabel(scope.xlabel)
+                                .rotateLabels(scope.xrotatelabels)
                                 .tickFormat(scope.xformat());
 
                             chart.yAxis
                                 .axisLabel(scope.ylabel)
                                 .axisLabelDistance(42)
+                                .rotateLabels(scope.yrotatelabels)
                                 .tickFormat(scope.yformat());
 
                             d3.select('#' + scope.chartId +' svg').datum(scope.data)
@@ -187,6 +195,8 @@
                 height: '@',
                 responsive: '@',
                 width: '@',
+                xrotatelabels: '@',
+                yrotatelabels: '@',
                 xformat: '&',
                 yformat: '&'
 
@@ -212,10 +222,18 @@
                                 scope.xformat = function() { return d3.format() };
                             if(!scope.yformat())
                                 scope.yformat = function() { return d3.format() };
+                            if(!scope.xrotatelabels)
+                                scope.xrotatelabels = 0;
+                            if(!scope.yrotatelabels)
+                                scope.yrotatelabels = 0;
 
                             chart.showDistX(true).showDistY(true);
-                            chart.xAxis.tickFormat(scope.xformat());
-                            chart.yAxis.tickFormat(scope.yformat());
+                            chart.xAxis
+                                .rotateLabels(scope.xrotatelabels)
+                                .tickFormat(scope.xformat());
+                            chart.yAxis
+                                .rotateLabels(scope.yrotatelabels)
+                                .tickFormat(scope.yformat());
                             chart.tooltipContent(function (key, x, y) {
                                 return "<h3>" + key + "</h3><p>" + y + " at " + x + "</p>";
                             });
@@ -276,6 +294,7 @@
                 showValues: '@',
                 tooltips: '@',
                 width: '@',
+                yrotatelabels: '@',
                 yformat: '&'
             },
             link: function (scope, element, attrs){
@@ -292,13 +311,17 @@
 
                             if(!scope.yformat())
                                 scope.yformat = function() { return d3.format() };
+                            if(!scope.yrotatelabels)
+                                scope.yrotatelabels = 0;
 
                             chart.x(function(d) { return d.label; })
                                 .y(function(d) { return d.value; })
                                 .tooltips(scope.tooltips === 'true' ? true : false)
                                 .transitionDuration(scope.duration == null ? 250 : scope.duration)
                                 .showControls(scope.showControls === 'true' ? true : false)
-                                .yAxis.tickFormat(scope.yformat());
+                                .yAxis
+                                    .rotateLabels(scope.yrotatelabels)
+                                    .tickFormat(scope.yformat());
 
                             chart.width(scope.width).height(scope.height);
 
@@ -356,8 +379,11 @@
                 width: '@',
                 xformat: '&',
                 xlabel: '@',
+                xrotatelabels: '@',
                 y1format: '&',
                 y2format: '&',
+                y1rotatelabels: '@',
+                y2rotatelabels: '@',
                 y1label: '@',
                 y2label: '@'
             },
@@ -376,14 +402,23 @@
                                 scope.y1format = function() { return d3.format() };
                             if(!scope.y2format())
                                 scope.y2format = function() { return d3.format() };
+                            if(!scope.xrotatelabels)
+                                scope.xrotatelabels = 0;
+                            if(!scope.y1rotatelabels)
+                                scope.y1rotatelabels = 0;
+                            if(!scope.y2rotatelabels)
+                                scope.y2rotatelabels = 0;
 
                             chart.xAxis.axisLabel(scope.xlabel)
+                                .rotateLabels(scope.xrotatelabels)
                                 .tickFormat(scope.xformat());
 
                             chart.y1Axis.axisLabel(scope.y1label)
+                                .rotateLabels(scope.y1rotatelabels)
                                 .tickFormat(scope.y1format());
 
                             chart.y2Axis.axisLabel(scope.y2label)
+                                .rotateLabels(scope.y2rotatelabels)
                                 .tickFormat(scope.y2format());
 
                             chart.bars.forceY([0]).padData(false);
