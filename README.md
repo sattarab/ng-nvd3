@@ -160,6 +160,7 @@ Setting specific values for width or height in div-class would not make the grap
 
 ####Contributor(s)
 sattarab (c2sattara1@gmail.com)
+RenatoUtsch (https://github.com/RenatoUtsch)
 
 ####Issues
 If you find any issues please log it with a little description of how to re-produce it. I will try to resolve as soon as possible.
